@@ -39,7 +39,7 @@ function eventosBotones() {
     $('.botonDelete0').on('click', function () {
         if (confirm("¿Desea eliminar empleado?")) {
             var dataId = $(this).attr("data-id");
-            alert($(this).attr("data-id"));
+            // alert($(this).attr("data-id"));
             borrarDatos(dataId);
             console.log(dataId)
 
@@ -153,7 +153,10 @@ function eventosBotones() {
                         </div>
                     </div>`
         $('#añadeEmpleado').html(datosNuevoEmpleado)
+
+        $('.guardarEmpleado').off() 
         $('.guardarEmpleado').on('click', function () {
+            console.log("ACTIVANDO")
             let nameNuevoEmpleado = $("#nombreE").val();
             console.log(nameNuevoEmpleado)
             let ageNuevoEmpleado = $("#edadE").val();
@@ -225,7 +228,7 @@ function crearNuevoEmpleado(objNuevoEmpleado) {
         "type": "POST",
         "url": "http://dummy.restapiexample.com/api/v1/create",
         "dataType": "json",
-        "data": JSON.stringify(objNuevoEmpleado ),
+        "data": JSON.stringify(objNuevoEmpleado),
         "headers": {
             "Content-Type": "application/json",
             "X-Requested-With": "XMLHttpRequest"
@@ -233,5 +236,5 @@ function crearNuevoEmpleado(objNuevoEmpleado) {
         "success": (data) => { console.log(data) },
         "error": (error) => { console.log(error) }
     })
-
+    
 }
