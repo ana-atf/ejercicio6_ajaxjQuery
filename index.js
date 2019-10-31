@@ -24,7 +24,7 @@ function listadoEmpleados(allEmployees) {
                             </div>
                         </td>
                     </tr>`
-        $('body > div:nth-child(2) > div > div > table > tbody').append(users)
+        $('.cargarListadoEmpleado').append(users)
     });
     eventosBotones()
 
@@ -41,14 +41,14 @@ function eventosBotones() {
             var dataId = $(this).attr("data-id");
             // alert($(this).attr("data-id"));
             borrarDatos(dataId);
-            console.log(dataId)
+            // console.log(dataId)
 
         }
     });
 
     $('.botonSearch0').on('click', function () {
         var dataId = $(this).attr("data-id");
-        console.log(dataId)
+        // console.log(dataId)
         for (let i = 0; i < allEmployees.length; i++) {
             if (allEmployees[i].id === dataId) {
 
@@ -113,15 +113,15 @@ function eventosBotones() {
                 $('.actualizarInfo').off()
                 $('.actualizarInfo').on('click', function () {
                     console.log("ACTIVANDO")
-                    console.log(dataId)
+                    // console.log(dataId)
                     let name = $('.editaEmpleado input[name="employee_name"]').val();
-                    console.log(name)
+                    // console.log(name)
                     let age = $('.editaEmpleado input[name="employee_age"]').val();
-                    console.log(age)
+                    // console.log(age)
                     let salary = $('.editaEmpleado input[name="employee_salary"]').val();
-                    console.log(salary)
+                    // console.log(salary)
                     let objActualizado = { id: dataId, name: name, salary: salary, age: age };
-                    console.log(objActualizado)
+                    // console.log(objActualizado)
                     editarEmpleado(objActualizado)
 
                 })
@@ -163,13 +163,13 @@ function eventosBotones() {
         $('.guardarEmpleado').on('click', function () {
             console.log("ACTIVANDO")
             let nameNuevoEmpleado = $("#nombreE").val();
-            console.log(nameNuevoEmpleado)
+            // console.log(nameNuevoEmpleado)
             let ageNuevoEmpleado = $("#edadE").val();
-            console.log(ageNuevoEmpleado)
+            // console.log(ageNuevoEmpleado)
             let salaryNuevoEmpleado = $("#salarioE").val();
-            console.log(salaryNuevoEmpleado)
+            // console.log(salaryNuevoEmpleado)
             let objNuevoEmpleado = {"name":nameNuevoEmpleado, "salary":salaryNuevoEmpleado, "age":ageNuevoEmpleado};
-            console.log(objNuevoEmpleado)
+            // console.log(objNuevoEmpleado)
             crearNuevoEmpleado(objNuevoEmpleado)
         })
 
