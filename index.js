@@ -12,13 +12,13 @@ function listadoEmpleados(allEmployees) {
                         <td>${empleado.employee_age}</td>
                         <td>
                             <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
-                                <button data-id="${empleado.id}" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                                <button data-id="${empleado.id}" type="button" class="btn btn-primary botonSearch0" data-toggle="modal" data-target="#exampleModal">
                                     <i class="fas fa-search"></i>
                                 </button>
-                                <button data-id="${empleado.id}" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal1">
+                                <button data-id="${empleado.id}" type="button" class="btn btn-primary botonEdit0" data-toggle="modal" data-target="#exampleModal1">
                                     <i class="fas fa-pencil-alt"></i>
                                 </button>
-                                <button type="button" class="btn btn-secondary" data-id="${empleado.id}">
+                                <button type="button" class="btn btn-secondary botonDelete0" data-id="${empleado.id}">
                                     <i class="fas fa-trash-alt"></i>
                                 </button>
                             </div>
@@ -36,7 +36,7 @@ $(window).on('load', () => {
 
 
 function eventosBotones() {
-    $('body > div:nth-child(2) > div > div > table > tbody > tr:nth-child(1) > td:nth-child(5) > div > button:nth-child(3)').on('click', function () {
+    $('.botonDelete0').on('click', function () {
         if (confirm("¿Desea eliminar empleado?")) {
             var dataId = $(this).attr("data-id");
             alert($(this).attr("data-id"));
@@ -46,8 +46,9 @@ function eventosBotones() {
         }
     });
 
-    $('body > div:nth-child(2) > div > div > table > tbody > tr:nth-child(1) > td:nth-child(5) > div > button.btn.btn-primary').on('click', function () {
+    $('.botonSearch0').on('click', function () {
         var dataId = $(this).attr("data-id");
+        console.log(dataId)
         for (let i = 0; i < allEmployees.length; i++) {
             if (allEmployees[i].id === dataId) {
 
@@ -78,7 +79,7 @@ function eventosBotones() {
     });
 
     //PARA EDITAR EMPLEADO
-    $('body > div:nth-child(2) > div > div > table > tbody > tr:nth-child(1) > td:nth-child(5) > div > button:nth-child(2)').on('click', function () {
+    $('.botonEdit0').on('click', function () {
         var dataId = $(this).attr("data-id");
 
         for (let i = 0; i < allEmployees.length; i++) {
