@@ -1,0 +1,16 @@
+/* .row {
+    border: 2px solid red;
+}
+
+.col {
+    border: 2px solid red;
+} */
+
+#imagenEmpleado{
+    width: 50px !important
+
+}
+
+#botonCrear{
+    float:right;
+}
