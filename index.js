@@ -108,7 +108,11 @@ function eventosBotones() {
                         </div>
                         </div>`
                 $('.editaEmpleado').html(datosCambioEmpleado)
+                //CADA VEZ QUE HAGO CLICK EN EL BOTON DE EDITAR ME HACE DOS VECES LA SIGUIENTE LLAMADA PORQUE
+                //SE GUARDA LA INFO AÑADIDA ANTERIORMENTE, CON EL .OFF()
+                $('.actualizarInfo').off()
                 $('.actualizarInfo').on('click', function () {
+                    console.log("ACTIVANDO")
                     console.log(dataId)
                     let name = $('.editaEmpleado input[name="employee_name"]').val();
                     console.log(name)
@@ -130,6 +134,7 @@ function eventosBotones() {
 
     });
 
+    //PARA CREAR EMPLEADO
     $('#botonCrear').on('click', function () {
         let datosNuevoEmpleado = `
                     <div class="row">
@@ -206,7 +211,6 @@ function borrarDatos(id) {
 // HTTP PARA EDITAR UN USUARIO
 
 function editarEmpleado(objActualizado) {
-    console.log(objActualizado)
     $.ajax({
         "type": "PUT",
         "url": "http://dummy.restapiexample.com/api/v1/update/" + objActualizado.id,
